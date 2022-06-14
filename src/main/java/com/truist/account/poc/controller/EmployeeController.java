@@ -30,7 +30,6 @@ public class EmployeeController {
 
 	@Autowired
 	private EmployeeService employeeService;
-
 	Logger logger = LogManager.getLogger(EmployeeController.class);
 
 	@GetMapping("/employees")
