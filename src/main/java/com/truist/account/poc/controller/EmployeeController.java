@@ -9,6 +9,7 @@ import javax.validation.Valid;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,14 +38,16 @@ public class EmployeeController {
 		logger.info(" started getAllEmployees : ");
 		List<Employee> empList = employeeService.retriveAllEmployee();
 		logger.info(" end getAllEmployees : ");
+
 		return ResponseEntity.ok(empList);
 
 	}
 
 	@GetMapping("/employees/bydesigination")
-	public ResponseEntity<Map <String, List <Employee >>> getEmployeeByDesigination()  {
+	public ResponseEntity<Map<String, List<Employee>>> getEmployeeByDesigination() {
 		logger.info(" started getEmployeeByDesigination : ");
-		Map <String, List <Employee >> empList = employeeService.findByDesigination();
+
+		Map<String, List<Employee>> empList = employeeService.findByDesigination();
 
 		logger.info(" end getEmployeeByDesigination : ");
 		return ResponseEntity.ok().body(empList);
